@@ -203,7 +203,7 @@
         const pass = document.getElementById('l-pass').value;
         try {
             await signInWithEmailAndPassword(auth, email, pass);
-            alert("N/A ACCESS GRANTED!");
+            window.location.href = "dashboard.html";
         } catch (e) { alert(e.message); }
     };
 
@@ -230,4 +230,5 @@
 
 </script>
 </body>
+
 </html>
