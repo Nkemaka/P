@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>N/A GAMING | OFFICIAL TERMINAL</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN ENGINE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html, body {
+            width: 100vw; min-height: 100vh; overflow-x: hidden;
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2000') no-repeat center center fixed;
+            background-size: cover; background-color: #000;
+        }
+
+        /* CUSTOM CROSSHAIR */
+        * { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="2" fill="white"/><line x1="16" y1="0" x2="16" y2="32" stroke="cyan" stroke-width="1"/><line x1="0" y1="16" x2="32" y2="16" stroke="cyan" stroke-width="1"/></svg>') 16 16, crosshair !important; }
+
+        .viewport { width: 100%; min-height: 100vh; display: flex; justify-content: center; align-items: center; position: relative; }
+
+        .page-wrapper {
+            display: none; opacity: 0; flex-direction: column; align-items: center;
+            text-align: center; width: 100%; padding: 20px; transition: opacity 0.4s ease;
+        }
+
+        #home-page { display: flex; opacity: 1; }
+
+        /* HERO ELEMENTS */
+        .hero-title {
+            font-family: 'Orbitron'; font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900;
+            letter-spacing: 12px; color: #fff; position: relative;
+            text-shadow: 0 0 20px rgba(0, 234, 255, 0.7); margin-bottom: 5px;
+        }
+
+        .container-box {
+            background: rgba(0, 0, 0, 0.85); width: 100%; max-width: 400px;
+            padding: 35px; border: 1px solid rgba(0, 234, 255, 0.4);
+            backdrop-filter: blur(15px); box-shadow: 0 0 40px rgba(0,0,0,0.8); margin: auto;
+        }
+
+        /* INPUTS */
+        .input-group { position: relative; width: 100%; margin-bottom: 12px; }
+        .modal-input {
+            width: 100%; padding: 14px; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333; color: #fff; font-family: 'Rajdhani';
+            font-size: 1rem; outline: none; padding-right: 45px;
+        }
+        .toggle-pass { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #00eaff; cursor: pointer !important; z-index: 10; }
+
+        /* BUTTONS */
+        .google-btn {
+            width: 100%; padding: 12px; background: #fff; color: #000; border: none;
+            font-family: 'Rajdhani'; font-weight: 700; display: flex; align-items: center;
+            justify-content: center; gap: 10px; margin-bottom: 15px; cursor: pointer !important;
+        }
+        .btn-main { width: 100%; padding: 15px; font-family: 'Orbitron'; font-weight: 900; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.3s; }
+        .cyan-btn { background: #00eaff; color: #000; }
+        .mag-btn { background: #ff00ff; color: #000; }
+
+        /* SLIDER */
+        .slider-box { width: 100%; height: 50px; background: rgba(255,255,255,0.05); border: 1px solid #222; position: relative; margin: 15px 0; overflow: hidden; touch-action: none; }
+        .slider-text { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #666; pointer-events: none; }
+        .slider-handle { width: 60px; height: 100%; position: absolute; left: 0; display: flex; align-items: center; justify-content: center; color: #000; z-index: 5; transition: background 0.3s; }
+
+        .social-row { display: flex; justify-content: center; gap: 30px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .social-row a { color: #fff; font-size: 1.8rem; opacity: 0.6; transition: 0.3s; }
+        .social-row a:hover { color: #00eaff; opacity: 1; transform: translateY(-3px); }
+    </style>
+</head>
+<body>
+
+<div class="viewport">
+
+    <div id="home-page" class="page-wrapper">
+        <h1 class="hero-title">N/A GAMING</h1>
+        <p style="color:#00eaff; letter-spacing:8px; font-family:'Orbitron'; margin-bottom:40px; font-size:0.9rem;">ASCEND THE RANKS</p>
+        <div style="display: flex; gap: 15px; width: 100%; max-width: 400px;">
+            <button class="btn-main cyan-btn" onclick="showPage('login-page')">LOGIN</button>
+            <button class="btn-main" style="background:none; border: 2px solid #00eaff; color:#00eaff;" onclick="showPage('signup-page')">SIGN UP</button>
+        </div>
+        <div class="social-row" style="border:none; margin-top:40px;">
+            <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://steampowered.com" target="_blank"><i class="fab fa-steam"></i></a>
+        </div>
+    </div>
+
+    <div id="login-page" class="page-wrapper">
+        <div class="container-box">
+            <h2 style="font-family:'Orbitron'; color:#00eaff; margin-bottom:20px; font-size:1.2rem;">SYSTEM LOGIN</h2>
+            <button class="google-btn" id="google-l-btn">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" width="16"> CONTINUE WITH GOOGLE
+            </button>
+            <div class="input-group"><input type="email" placeholder="EMAIL" class="modal-input" id="l-email"></div>
+            <div class="input-group">
+                <input type="password" placeholder="PASSWORD" class="modal-input" id="l-pass">
+                <i class="fas fa-eye toggle-pass" onclick="togglePassword('l-pass')"></i>
+            </div>
+            <div class="slider-box" id="l-sc">
+                <div class="slider-text">SLIDE TO AUTHORIZE</div>
+                <div class="slider-handle" id="l-sh" style="background:#00eaff"><i class="fas fa-chevron-right"></i></div>
+            </div>
+            <button class="btn-main cyan-btn" id="l-execute">ENTER N/A</button>
+            <p onclick="showPage('home-page')" style="margin-top:20px; font-size:0.7rem; color:#666; cursor:pointer; font-family:'Orbitron';">RETURN</p>
+        </div>
+    </div>
+
+    <div id="signup-page" class="page-wrapper">
+        <div class="container-box">
+            <h2 style="font-family:'Orbitron'; color:#ff00ff; margin-bottom:20px; font-size:1.2rem;">NEW IDENTITY</h2>
+            <button class="google-btn" id="google-s-btn">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" width="16"> SIGN UP WITH GOOGLE
+            </button>
+            <div class="input-group"><input type="email" placeholder="EMAIL" class="modal-input" id="s-email"></div>
+            <div class="input-group">
+                <input type="password" placeholder="PASSWORD" class="modal-input" id="p1">
+                <i class="fas fa-eye toggle-pass" onclick="togglePassword('p1')"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="CONFIRM PASSWORD" class="modal-input" id="p2">
+                <i class="fas fa-eye toggle-pass" onclick="togglePassword('p2')"></i>
+            </div>
+            <div class="slider-box" id="s-sc">
+                <div class="slider-text">SLIDE TO INITIALIZE</div>
+                <div class="slider-handle" id="s-sh" style="background:#ff00ff"><i class="fas fa-chevron-right"></i></div>
+            </div>
+            <button class="btn-main mag-btn" id="s-execute">INITIALIZE</button>
+            <p onclick="showPage('home-page')" style="margin-top:20px; font-size:0.7rem; color:#666; cursor:pointer; font-family:'Orbitron';">RETURN</p>
+        </div>
+    </div>
+
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    // 1. PASTE YOUR CONFIG HERE
+    const firebaseConfig = {
+        apiKey: "AIzaSyDz2XDOQUvtgvPlLiStnD7cuo2BL0c56lU",
+        authDomain: "echelon-e3b06.firebaseapp.com",
+        projectId: "echelon-e3b06",
+        storageBucket: "echelon-e3b06.firebasestorage.app",
+        messagingSenderId: "131545955366",
+        appId: "1:131545955366:web:1bcac8d99312265f87bae7",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // UI LOGIC
+    window.showPage = (id) => {
+        const wrappers = document.querySelectorAll('.page-wrapper');
+        wrappers.forEach(p => { p.style.opacity = '0'; p.style.display = 'none'; });
+        const target = document.getElementById(id);
+        target.style.display = 'flex';
+        setTimeout(() => { target.style.opacity = '1'; }, 50);
+    };
+
+    window.togglePassword = (id) => {
+        const p = document.getElementById(id), i = p.nextElementSibling;
+        p.type = p.type === "password" ? "text" : "password";
+        i.classList.toggle("fa-eye"); i.classList.toggle("fa-eye-slash");
+    };
+
+    // SLIDER ENGINE
+    let logOK = false, regOK = false;
+    function setupSlider(hId, cId, type) {
+        const h = document.getElementById(hId), c = document.getElementById(cId);
+        let dragging = false;
+        const start = (e) => { dragging = true; };
+        const end = () => { dragging = false; if ((type==='log' && !logOK) || (type==='reg' && !regOK)) h.style.left = '0px'; };
+        const move = (e) => {
+            if (!dragging) return;
+            const xCoord = e.touches ? e.touches[0].clientX : e.clientX;
+            const rect = c.getBoundingClientRect();
+            let x = xCoord - rect.left - 30;
+            const max = c.offsetWidth - h.offsetWidth;
+            if (x < 0) x = 0; if (x > max) x = max;
+            h.style.left = x + 'px';
+            if (x >= max - 2) {
+                type === 'log' ? logOK = true : regOK = true;
+                dragging = false; h.style.background = "#00ff00"; h.innerHTML = '<i class="fas fa-check"></i>';
+            }
+        };
+        h.addEventListener('mousedown', start); h.addEventListener('touchstart', start);
+        window.addEventListener('mousemove', move); window.addEventListener('touchmove', move);
+        window.addEventListener('mouseup', end); window.addEventListener('touchend', end);
+    }
+    setupSlider('l-sh', 'l-sc', 'log'); setupSlider('s-sh', 's-sc', 'reg');
+
+    // FIREBASE ACTIONS
+    document.getElementById('l-execute').onclick = async () => {
+        if(!logOK) return alert("Authorize Slider First!");
+        const email = document.getElementById('l-email').value;
+        const pass = document.getElementById('l-pass').value;
+        try {
+            await signInWithEmailAndPassword(auth, email, pass);
+            alert("N/A ACCESS GRANTED!");
+        } catch (e) { alert(e.message); }
+    };
+
+    document.getElementById('s-execute').onclick = async () => {
+        if(!regOK) return alert("Authorize Slider First!");
+        const email = document.getElementById('s-email').value;
+        const pass = document.getElementById('p1').value;
+        if(pass !== document.getElementById('p2').value) return alert("Passwords do not match!");
+        try {
+            await createUserWithEmailAndPassword(auth, email, pass);
+            alert("IDENTITY INITIALIZED!");
+        } catch (e) { alert(e.message); }
+    };
+
+    const googleAuth = async () => {
+        try {
+            await signInWithPopup(auth, provider);
+            alert("GOOGLE AUTH SUCCESSFUL!");
+        } catch (e) { alert(e.message); }
+    };
+
+    document.getElementById('google-l-btn').onclick = googleAuth;
+    document.getElementById('google-s-btn').onclick = googleAuth;
+
+</script>
+</body>
+</html>
